@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Videos</title>
+    <style>
+      :root {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background: #f5f7fa;
+        color: #18202a;
+      }
+
+      main {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      h1 {
+        margin: 0 0 24px;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: minmax(260px, 380px) repeat(2, minmax(260px, 1fr));
+        gap: 24px;
+        align-items: start;
+      }
+
+      .video.short {
+        grid-row: span 2;
+      }
+
+      .video {
+        overflow: hidden;
+        border: 1px solid #d8dee7;
+        border-radius: 8px;
+        background: #ffffff;
+        box-shadow: 0 12px 30px rgba(24, 32, 42, 0.08);
+      }
+
+      .video iframe {
+        display: block;
+        width: 100%;
+        border: 0;
+        aspect-ratio: 16 / 9;
+      }
+
+      .video.short iframe {
+        aspect-ratio: 9 / 16;
+      }
+
+      .video a {
+        display: block;
+        padding: 12px 14px;
+        color: #1457a8;
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+
+      .video a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 900px) {
+        .video-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .video.short {
+          grid-row: auto;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .video-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Sensational Sabrina's Cinnamoroll Cinema</h1>
+      <section class="video-grid" aria-label="Embedded YouTube videos">
+        <div class="video short">
+          <iframe
+            src="https://www.youtube.com/embed/e2woVWKlE1Q"
+            title="YouTube Short"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <a href="https://youtube.com/shorts/e2woVWKlE1Q" target="_blank" rel="noreferrer">Open short on YouTube</a>
+        </div>
+
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/19U_Bhb6-mE"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <a href="https://youtu.be/19U_Bhb6-mE" target="_blank" rel="noreferrer">Open video on YouTube</a>
+        </div>
+
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/iK8FdLT45W4"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <a href="https://youtu.be/iK8FdLT45W4" target="_blank" rel="noreferrer">Open video on YouTube</a>
+        </div>
+
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/_l4YjsZ7P80"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <a href="https://youtu.be/_l4YjsZ7P80" target="_blank" rel="noreferrer">Open video on YouTube</a>
+        </div>
+
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/8FCP-HiFu6E"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <a href="https://youtu.be/8FCP-HiFu6E" target="_blank" rel="noreferrer">Open video on YouTube</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
