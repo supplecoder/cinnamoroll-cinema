@@ -4,48 +4,136 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <title>Sensational Sabrina's Cinnamoroll Cinema</title>
     <style>
       :root {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Nunito', Arial, sans-serif;
+        --pink: #ffb7c5;
+        --blue: #a8d8f0;
+        --purple: #d4b8e8;
+        --cream: #fff6f9;
+        --text: #5a3a5a;
+        --card-bg: #ffffff;
+        --accent: #f472b6;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
         min-height: 100vh;
         margin: 0;
-        background: #f5f7fa;
-        color: #18202a;
+        background: linear-gradient(135deg, #fce4ec 0%, #e8d5f5 50%, #d0eaf8 100%);
+        color: var(--text);
       }
 
-      main {
-        width: min(1120px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 48px 0;
+      /* ── Header ── */
+      header {
+        text-align: center;
+        padding: 36px 16px 24px;
+        position: relative;
+      }
+
+      .deco-strip {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
       }
 
       h1 {
-        margin: 0 0 24px;
-        font-size: clamp(2rem, 5vw, 3rem);
-        font-weight: 700;
+        margin: 0 0 6px;
+        font-size: clamp(1.6rem, 5vw, 2.8rem);
+        font-weight: 800;
+        color: #c45c8a;
+        text-shadow: 2px 2px 0 #f9a8d4, 4px 4px 0 rgba(196,92,138,0.15);
+        letter-spacing: -0.5px;
       }
 
+      .subtitle {
+        font-size: 1rem;
+        color: #a06080;
+        margin: 0 0 8px;
+      }
+
+      /* ── Cinnamoroll banner SVG ── */
+      .banner-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        margin: 10px 0 4px;
+        flex-wrap: wrap;
+      }
+
+      .cinnamoroll-icon {
+        width: 72px;
+        height: 72px;
+        filter: drop-shadow(0 4px 8px rgba(180,120,180,0.25));
+      }
+
+      .banner-stars {
+        font-size: 1.6rem;
+        letter-spacing: 4px;
+      }
+
+      /* ── Main content ── */
+      main {
+        width: min(1140px, calc(100% - 24px));
+        margin: 0 auto;
+        padding: 0 0 56px;
+      }
+
+      .section-label {
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #b06090;
+        margin: 0 0 20px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      /* ── Video grid ── */
       .video-grid {
         display: grid;
-        grid-template-columns: minmax(260px, 380px) repeat(2, minmax(260px, 1fr));
-        gap: 24px;
-        align-items: start;
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
 
-      .video.short {
-        grid-row: span 2;
+      @media (min-width: 540px) {
+        .video-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 900px) {
+        .video-grid {
+          grid-template-columns: minmax(260px, 380px) repeat(2, minmax(260px, 1fr));
+        }
+        .video.short {
+          grid-row: span 2;
+        }
       }
 
       .video {
         overflow: hidden;
-        border: 1px solid #d8dee7;
-        border-radius: 8px;
-        background: #ffffff;
-        box-shadow: 0 12px 30px rgba(24, 32, 42, 0.08);
+        border: 2.5px solid var(--pink);
+        border-radius: 20px;
+        background: var(--card-bg);
+        box-shadow: 0 6px 20px rgba(180, 100, 160, 0.12), 0 0 0 4px rgba(255,183,197,0.18);
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .video:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(180, 100, 160, 0.2), 0 0 0 4px rgba(255,183,197,0.3);
       }
 
       .video iframe {
@@ -59,38 +147,105 @@
         aspect-ratio: 9 / 16;
       }
 
-      .video a {
-        display: block;
-        padding: 12px 14px;
-        color: #1457a8;
-        font-size: 0.95rem;
+      .video-label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 14px;
+      }
+
+      .video-label a {
+        color: #c45c8a;
+        font-size: 0.9rem;
+        font-weight: 700;
         text-decoration: none;
       }
 
-      .video a:hover {
+      .video-label a:hover {
         text-decoration: underline;
       }
 
-      @media (max-width: 900px) {
-        .video-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .video.short {
-          grid-row: auto;
-        }
+      .paw {
+        font-size: 0.85rem;
+        opacity: 0.7;
       }
 
-      @media (max-width: 640px) {
-        .video-grid {
-          grid-template-columns: 1fr;
-        }
+      /* ── Footer ── */
+      footer {
+        text-align: center;
+        padding: 16px;
+        font-size: 0.85rem;
+        color: #b090b0;
       }
     </style>
   </head>
   <body>
+
+    <header>
+      <div class="deco-strip">
+        <span>🌸</span><span>⭐</span><span>🩷</span><span>☁️</span><span>🌟</span><span>🩵</span><span>🌸</span>
+      </div>
+
+      <div class="banner-row">
+        <!-- Inline Cinnamoroll SVG -->
+        <svg class="cinnamoroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+          <ellipse cx="14" cy="34" rx="8" ry="20" fill="#a8cce8" transform="rotate(-15 14 34)"/>
+          <ellipse cx="50" cy="34" rx="8" ry="20" fill="#a8cce8" transform="rotate(15 50 34)"/>
+          <ellipse cx="14" cy="34" rx="5" ry="14" fill="#c8e4f5" transform="rotate(-15 14 34)"/>
+          <ellipse cx="50" cy="34" rx="5" ry="14" fill="#c8e4f5" transform="rotate(15 50 34)"/>
+          <circle cx="32" cy="36" r="24" fill="white"/>
+          <ellipse cx="23" cy="33" rx="5" ry="5.5" fill="#4a90d0"/>
+          <ellipse cx="23" cy="33" rx="3" ry="3.5" fill="#1a5a9a"/>
+          <circle cx="24.5" cy="31" r="1.5" fill="white"/>
+          <ellipse cx="41" cy="33" rx="5" ry="5.5" fill="#4a90d0"/>
+          <ellipse cx="41" cy="33" rx="3" ry="3.5" fill="#1a5a9a"/>
+          <circle cx="42.5" cy="31" r="1.5" fill="white"/>
+          <ellipse cx="32" cy="41" rx="3" ry="2" fill="#f4a0b0"/>
+          <ellipse cx="17" cy="43" rx="5" ry="3" fill="#f9c0c8" opacity="0.6"/>
+          <ellipse cx="47" cy="43" rx="5" ry="3" fill="#f9c0c8" opacity="0.6"/>
+          <circle cx="32" cy="14" r="8" fill="#c8843a"/>
+          <circle cx="32" cy="14" r="5" fill="none" stroke="#9e5a1a" stroke-width="2"/>
+          <circle cx="32" cy="14" r="2" fill="#9e5a1a"/>
+          <ellipse cx="32" cy="10" rx="4" ry="2.5" fill="white" opacity="0.9"/>
+          <ellipse cx="37" cy="14" rx="2.5" ry="1.5" fill="white" opacity="0.85"/>
+        </svg>
+
+        <div>
+          <h1>Sensational Sabrina's<br>Cinnamoroll Cinema</h1>
+          <p class="subtitle">🎀 A cozy corner of Cinnamoroll videos 🎀</p>
+        </div>
+
+        <svg class="cinnamoroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+          <ellipse cx="14" cy="34" rx="8" ry="20" fill="#a8cce8" transform="rotate(-15 14 34)"/>
+          <ellipse cx="50" cy="34" rx="8" ry="20" fill="#a8cce8" transform="rotate(15 50 34)"/>
+          <ellipse cx="14" cy="34" rx="5" ry="14" fill="#c8e4f5" transform="rotate(-15 14 34)"/>
+          <ellipse cx="50" cy="34" rx="5" ry="14" fill="#c8e4f5" transform="rotate(15 50 34)"/>
+          <circle cx="32" cy="36" r="24" fill="white"/>
+          <ellipse cx="23" cy="33" rx="5" ry="5.5" fill="#4a90d0"/>
+          <ellipse cx="23" cy="33" rx="3" ry="3.5" fill="#1a5a9a"/>
+          <circle cx="24.5" cy="31" r="1.5" fill="white"/>
+          <ellipse cx="41" cy="33" rx="5" ry="5.5" fill="#4a90d0"/>
+          <ellipse cx="41" cy="33" rx="3" ry="3.5" fill="#1a5a9a"/>
+          <circle cx="42.5" cy="31" r="1.5" fill="white"/>
+          <ellipse cx="32" cy="41" rx="3" ry="2" fill="#f4a0b0"/>
+          <ellipse cx="17" cy="43" rx="5" ry="3" fill="#f9c0c8" opacity="0.6"/>
+          <ellipse cx="47" cy="43" rx="5" ry="3" fill="#f9c0c8" opacity="0.6"/>
+          <circle cx="32" cy="14" r="8" fill="#c8843a"/>
+          <circle cx="32" cy="14" r="5" fill="none" stroke="#9e5a1a" stroke-width="2"/>
+          <circle cx="32" cy="14" r="2" fill="#9e5a1a"/>
+          <ellipse cx="32" cy="10" rx="4" ry="2.5" fill="white" opacity="0.9"/>
+          <ellipse cx="37" cy="14" rx="2.5" ry="1.5" fill="white" opacity="0.85"/>
+        </svg>
+      </div>
+
+      <div class="deco-strip" style="margin-top:10px;">
+        <span>🩷</span><span>🌟</span><span>🩵</span><span>⭐</span><span>🌸</span><span>💫</span><span>🩷</span>
+      </div>
+    </header>
+
     <main>
-      <h1>Sensational Sabrina's Cinnamoroll Cinema</h1>
+      <p class="section-label">🍥 Watch & Enjoy 🍥</p>
+
       <section class="video-grid" aria-label="Embedded YouTube videos">
         <div class="video short">
           <iframe
@@ -100,7 +255,10 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
-          <a href="https://youtube.com/shorts/e2woVWKlE1Q" target="_blank" rel="noreferrer">Open short on YouTube</a>
+          <div class="video-label">
+            <span class="paw">🐾</span>
+            <a href="https://youtube.com/shorts/e2woVWKlE1Q" target="_blank" rel="noreferrer">Open short on YouTube</a>
+          </div>
         </div>
 
         <div class="video">
@@ -111,7 +269,10 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
-          <a href="https://youtu.be/19U_Bhb6-mE" target="_blank" rel="noreferrer">Open video on YouTube</a>
+          <div class="video-label">
+            <span class="paw">🐾</span>
+            <a href="https://youtu.be/19U_Bhb6-mE" target="_blank" rel="noreferrer">Open video on YouTube</a>
+          </div>
         </div>
 
         <div class="video">
@@ -122,7 +283,10 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
-          <a href="https://youtu.be/iK8FdLT45W4" target="_blank" rel="noreferrer">Open video on YouTube</a>
+          <div class="video-label">
+            <span class="paw">🐾</span>
+            <a href="https://youtu.be/iK8FdLT45W4" target="_blank" rel="noreferrer">Open video on YouTube</a>
+          </div>
         </div>
 
         <div class="video">
@@ -133,7 +297,10 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
-          <a href="https://youtu.be/_l4YjsZ7P80" target="_blank" rel="noreferrer">Open video on YouTube</a>
+          <div class="video-label">
+            <span class="paw">🐾</span>
+            <a href="https://youtu.be/_l4YjsZ7P80" target="_blank" rel="noreferrer">Open video on YouTube</a>
+          </div>
         </div>
 
         <div class="video">
@@ -144,9 +311,17 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
-          <a href="https://youtu.be/8FCP-HiFu6E" target="_blank" rel="noreferrer">Open video on YouTube</a>
+          <div class="video-label">
+            <span class="paw">🐾</span>
+            <a href="https://youtu.be/8FCP-HiFu6E" target="_blank" rel="noreferrer">Open video on YouTube</a>
+          </div>
         </div>
       </section>
     </main>
+
+    <footer>
+      Made with 🩷 for Sabrina &nbsp;·&nbsp; ☁️ Cinnamoroll forever ☁️
+    </footer>
+
   </body>
 </html>
