@@ -276,35 +276,10 @@
       }
     }
 
-    let holdInterval = null;
-    let currentX = 0, currentY = 0;
-
-    function startHold(x, y) {
-      currentX = x; currentY = y;
-      spawnHearts(x, y);
-      holdInterval = setInterval(() => spawnHearts(currentX, currentY), 80);
-    }
-
-    function moveHold(x, y) { currentX = x; currentY = y; }
-
-    function stopHold() {
-      clearInterval(holdInterval);
-      holdInterval = null;
-    }
-
-    document.addEventListener('mousedown', e => startHold(e.clientX, e.clientY));
-    document.addEventListener('mousemove', e => { if (holdInterval) moveHold(e.clientX, e.clientY); });
-    document.addEventListener('mouseup', stopHold);
-
+    document.addEventListener('click', e => spawnHearts(e.clientX, e.clientY));
     document.addEventListener('touchstart', e => {
-      const t = e.touches[0];
-      startHold(t.clientX, t.clientY);
+      Array.from(e.touches).forEach(t => spawnHearts(t.clientX, t.clientY));
     }, { passive: true });
-    document.addEventListener('touchmove', e => {
-      const t = e.touches[0];
-      moveHold(t.clientX, t.clientY);
-    }, { passive: true });
-    document.addEventListener('touchend', stopHold);
   </script>
   </body>
 </html>
