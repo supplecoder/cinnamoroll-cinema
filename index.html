@@ -145,6 +145,86 @@
 
       .video.short iframe { aspect-ratio: 9 / 16; }
 
+      /* Anime sections */
+      .anime-section {
+        margin-top: 56px;
+      }
+
+      .carousel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .car-viewport {
+        flex: 1;
+        overflow: hidden;
+        border-radius: 20px;
+      }
+
+      .car-track {
+        display: flex;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .car-slide {
+        flex: 0 0 100%;
+        border: 2.5px solid var(--pink);
+        border-radius: 20px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 6px 20px rgba(180,100,160,0.12), 0 0 0 4px rgba(255,183,197,0.18);
+      }
+
+      .car-slide iframe {
+        display: block;
+        width: 100%;
+        border: 0;
+        aspect-ratio: 16 / 9;
+      }
+
+      .car-btn {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 2.5px solid var(--pink);
+        background: white;
+        color: #c45c8a;
+        font-size: 1.4rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(180,100,160,0.15);
+        transition: background 0.15s, transform 0.15s;
+        line-height: 1;
+      }
+
+      .car-btn:hover { background: #fff0f5; transform: scale(1.08); }
+      .car-btn:disabled { opacity: 0.3; cursor: default; transform: none; }
+
+      .car-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .car-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #f9a8d4;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s, transform 0.2s;
+      }
+
+      .car-dot.active { background: #c45c8a; transform: scale(1.3); }
+
       /* Footer */
       footer {
         text-align: center;
@@ -229,12 +309,103 @@
           </iframe>
         </div>
       </section>
+      <div class="anime-section">
+        <p class="section-label">&#127897;&#65039; I.CINNAMOROLL &#127897;&#65039;</p>
+        <div class="carousel" id="car-icinna">
+          <button class="car-btn" id="car-icinna-prev">&#10094;</button>
+          <div class="car-viewport">
+            <div class="car-track" id="car-icinna-track">
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/KuKYxjVw3V4" title="Episode 1: Sketching" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/d39lt9c8_f8" title="Petal Showers" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/E10ANB9xXI8" title="Nature Photography" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/tyiThz6aCwc" title="Rooftop Garden" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/BQKqIPSR6j4" title="Two Buffets" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/vislMfxFcu4" title="Episode 8: Break Time" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            </div>
+          </div>
+          <button class="car-btn" id="car-icinna-next">&#10095;</button>
+        </div>
+        <div class="car-dots" id="car-icinna-dots"></div>
+      </div>
+
+      <div class="anime-section">
+        <p class="section-label">&#127909; Let&#39;s Roll, Cinnamoroll! &#127909;</p>
+        <div class="carousel" id="car-letsroll">
+          <button class="car-btn" id="car-letsroll-prev">&#10094;</button>
+          <div class="car-viewport">
+            <div class="car-track" id="car-letsroll-track">
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/z34tpQ5ZXrM" title="Cinnamoroll and The Wind" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/Id1plXSS3AQ" title="The Floating Skater" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+              <div class="car-slide"><iframe data-src="https://www.youtube.com/embed/dD2C9rNasno" title="Camping Night" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            </div>
+          </div>
+          <button class="car-btn" id="car-letsroll-next">&#10095;</button>
+        </div>
+        <div class="car-dots" id="car-letsroll-dots"></div>
+      </div>
     </main>
 
     <footer>
       Made with &#128150; for Sabrina &nbsp;&middot;&nbsp; &#9729;&#65039; Cinnamoroll forever &#9729;&#65039;
     </footer>
 
+  <script>
+    function initCarousel(id) {
+      const track   = document.getElementById(id + '-track');
+      const dotsEl  = document.getElementById(id + '-dots');
+      const prevBtn = document.getElementById(id + '-prev');
+      const nextBtn = document.getElementById(id + '-next');
+      const slides  = Array.from(track.querySelectorAll('.car-slide'));
+      let current   = 0;
+
+      // Load first slide src eagerly, rest lazily
+      function loadSlide(i) {
+        const iframe = slides[i].querySelector('iframe');
+        if (iframe.dataset.src && !iframe.src) iframe.src = iframe.dataset.src;
+      }
+
+      function unloadSlide(i) {
+        const iframe = slides[i].querySelector('iframe');
+        iframe.src = '';
+      }
+
+      function go(n) {
+        unloadSlide(current);
+        current = Math.max(0, Math.min(n, slides.length - 1));
+        track.style.transform = `translateX(-${current * 100}%)`;
+        loadSlide(current);
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === slides.length - 1;
+      }
+
+      // Dots
+      const dots = slides.map((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'car-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', () => go(i));
+        dotsEl.appendChild(d);
+        return d;
+      });
+
+      prevBtn.addEventListener('click', () => go(current - 1));
+      nextBtn.addEventListener('click', () => go(current + 1));
+
+      // Touch swipe
+      let tx = 0;
+      track.parentElement.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+      track.parentElement.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - tx;
+        if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+
+      go(0);
+    }
+
+    initCarousel('car-icinna');
+    initCarousel('car-letsroll');
+  </script>
   <script>
     const HEARTS = ['&#10084;','&#128149;','&#128150;','&#128151;','&#128152;','&#128153;'];
 
