@@ -235,5 +235,51 @@
       Made with &#128150; for Sabrina &nbsp;&middot;&nbsp; &#9729;&#65039; Cinnamoroll forever &#9729;&#65039;
     </footer>
 
+  <script>
+    const HEARTS = ['&#10084;','&#128149;','&#128150;','&#128151;','&#128152;','&#128153;'];
+
+    function spawnHearts(x, y) {
+      const count = 12;
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('span');
+        el.innerHTML = HEARTS[Math.floor(Math.random() * HEARTS.length)];
+        el.style.cssText = `
+          position: fixed;
+          left: ${x}px;
+          top: ${y}px;
+          font-size: ${14 + Math.random() * 18}px;
+          pointer-events: none;
+          user-select: none;
+          z-index: 9999;
+          transform: translate(-50%, -50%);
+          transition: none;
+        `;
+        document.body.appendChild(el);
+
+        const angle = (Math.random() * 260 - 130) * (Math.PI / 180);
+        const speed = 60 + Math.random() * 120;
+        const vx = Math.sin(angle) * speed;
+        const vy = -Math.cos(angle) * speed - 40;
+        const duration = 800 + Math.random() * 600;
+        const start = performance.now();
+
+        (function animate(now) {
+          const t = (now - start) / duration;
+          if (t >= 1) { el.remove(); return; }
+          const ease = 1 - t;
+          el.style.left = (x + vx * t) + 'px';
+          el.style.top  = (y + (vy * t + 120 * t * t)) + 'px';
+          el.style.opacity = ease;
+          el.style.transform = `translate(-50%,-50%) scale(${0.5 + ease * 0.8})`;
+          requestAnimationFrame(animate);
+        })(start);
+      }
+    }
+
+    document.addEventListener('click', e => spawnHearts(e.clientX, e.clientY));
+    document.addEventListener('touchstart', e => {
+      Array.from(e.touches).forEach(t => spawnHearts(t.clientX, t.clientY));
+    }, { passive: true });
+  </script>
   </body>
 </html>
