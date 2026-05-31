@@ -1,0 +1,17 @@
+{
+  "name": "Sensational Sabrina's Cinnamoroll Cinema",
+  "short_name": "Cinnamoroll Cinema",
+  "description": "A cozy corner of Cinnamoroll videos",
+  "start_url": "/cinnamoroll-cinema/",
+  "display": "standalone",
+  "background_color": "#fce4ec",
+  "theme_color": "#f9a8d4",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
