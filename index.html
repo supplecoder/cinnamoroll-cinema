@@ -151,6 +151,31 @@
 
       .video.short iframe { aspect-ratio: 9 / 16; }
 
+      /* Heart halo around Cinnamoroll image */
+      .cinna-halo {
+        position: relative;
+        display: inline-block;
+        padding: 40px;
+      }
+
+      @keyframes halo-float {
+        0%, 100% { transform: rotate(var(--r)) translateY(-118px) scale(1); }
+        50%       { transform: rotate(var(--r)) translateY(-128px) scale(1.15); }
+      }
+
+      .halo-heart {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 1.5rem;
+        --r: calc(var(--i) * 45deg);
+        transform-origin: 0 0;
+        transform: rotate(var(--r)) translateY(-118px);
+        animation: halo-float 2.4s ease-in-out infinite;
+        animation-delay: calc(var(--i) * -0.3s);
+        pointer-events: none;
+      }
+
       /* Anime sections */
       .anime-section { margin-top: 56px; }
 
@@ -204,7 +229,17 @@
           <p class="subtitle">&#127872; A cozy corner of Cinnamoroll videos &#127872;</p>
         </div>
 
-        <img src="favicon.png" alt="Cinnamoroll" style="width:240px;">
+        <div class="cinna-halo">
+          <img src="favicon.png" alt="Cinnamoroll" style="width:240px;">
+          <span class="halo-heart" style="--i:0">&#128150;</span>
+          <span class="halo-heart" style="--i:1">&#10084;</span>
+          <span class="halo-heart" style="--i:2">&#128153;</span>
+          <span class="halo-heart" style="--i:3">&#128149;</span>
+          <span class="halo-heart" style="--i:4">&#128150;</span>
+          <span class="halo-heart" style="--i:5">&#10084;</span>
+          <span class="halo-heart" style="--i:6">&#128153;</span>
+          <span class="halo-heart" style="--i:7">&#128149;</span>
+        </div>
       </div>
 
       <div class="deco-strip" style="margin-top:10px;">
